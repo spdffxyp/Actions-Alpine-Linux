@@ -55,9 +55,9 @@ jobs:
       run: |
         mkdir project
         cd project
-        wget https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-minirootfs-3.23.2-aarch64.tar.gz
+        wget https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-minirootfs-3.23.4-aarch64.tar.gz
         mkdir rootfs
-        sudo -E tar xzfp alpine-minirootfs-3.23.2-aarch64.tar.gz --numeric-owner --same-owner -C rootfs
+        sudo -E tar xzfp alpine-minirootfs-3.23.4-aarch64.tar.gz --numeric-owner --same-owner -C rootfs
 
     - name: Apply customizations
       run: |
@@ -209,7 +209,7 @@ jobs:
 
           # build rootfs.img
           ./build-rootfs-img.sh rootfs ${OS_DIR} 0 0
-          echo "title=${OS_DIR}" > ./${OS_DIR}/info.conf
+          echo "title=Alpine Linux 3.23" > ./${OS_DIR}/info.conf
           echo "require-board=${{ matrix.CPU }}" >> ./${OS_DIR}/info.conf
           echo "version=$(date +%Y-%m-%d)" >> ./${OS_DIR}/info.conf
 
