@@ -12,6 +12,7 @@ jobs:
         release_tag="Alpine-$(date +%Y-%m-%d)"
         echo "##[set-output name=release_tag;]$release_tag"
 
+
     - name: Create empty release
       id: release
       uses: softprops/action-gh-release@v1
